@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cugdvmtvg3q0s"]
+
+[ext_resource type="Script" uid="uid://b118knqh8x8mu" path="res://CharacterBody2d.cs" id="1_f50pn"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_f50pn")
