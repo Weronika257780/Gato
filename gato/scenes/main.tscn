@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://icdxrai8ykcb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_o5qli"]
+sky_material = SubResource("ProceduralSkyMaterial_sgp6g")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_o5qli")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y4uj6"]
+radius = 0.422324
+height = 1.48073
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wfyh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785857, 0.570505, -0.238648, 0, 0.385906, 0.922538, 0.618409, -0.724983, 0.303267, 0, 0, 0)
+shadow_enabled = true
+
+[node name="gato" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01352, 0)
+shape = SubResource("CapsuleShape3D_y4uj6")
+
+[node name="model" type="Node3D" parent="gato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.212541, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="gato/model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.817376, 0)
+radius = 0.368164
+height = 1.15186
+
+[node name="Camera3D" type="Camera3D" parent="gato"]
+transform = Transform3D(-0.996655, 0.0514502, -0.063499, 0.0141581, 0.873916, 0.485872, 0.0804909, 0.483347, -0.87172, -0.0522397, 3.08544, -2.68131)
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="environment"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="environment/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44.9141)
+use_collision = true
+size = Vector3(10, 0.5, 110.172)
