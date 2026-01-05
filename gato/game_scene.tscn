@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c38mcke7nx6mj"]
+[gd_scene load_steps=4 format=3 uid="uid://c38mcke7nx6mj"]
 
 [ext_resource type="PackedScene" uid="uid://cul81nmve8rl7" path="res://player.tscn" id="1_po0ka"]
 [ext_resource type="PackedScene" uid="uid://db5mwg7pqo6te" path="res://tree.tscn" id="2_v1wow"]
+[ext_resource type="PackedScene" uid="uid://dvmv48f25wnv3" path="res://mob.tscn" id="3_v1wow"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -44,3 +45,6 @@ position = Vector2(150, 290)
 
 [node name="Player" parent="." instance=ExtResource("1_po0ka")]
 position = Vector2(656, 494)
+
+[node name="Mob" parent="." instance=ExtResource("3_v1wow")]
+position = Vector2(940, 764)
